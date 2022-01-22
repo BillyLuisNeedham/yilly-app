@@ -1,1 +1,1 @@
-export { CreateUserUseCase } from './CreateUserUseCase'
+export { CreateUserUseCase } from './create-user-use-case'
