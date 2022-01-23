@@ -1,5 +1,5 @@
-import { CreateUserRequest } from "../../../domain";
+import { CreateUserRequest, User } from "../../../domain";
 
 export interface IUserDataSource {
-    createUser: (createUserReq: CreateUserRequest) => Promise<Result<void>>
+    createUser: (createUserReq: CreateUserRequest) => Promise<Result<User>>
 }

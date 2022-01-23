@@ -7,14 +7,14 @@ interface ICreateUserUseCase {
 }
 
 export class CreateUserUseCase implements ICreateUserUseCase {
-    userRepository: IUserRepository
+    private _userRepository: IUserRepository
 
     constructor(repo: IUserRepository) {
-        this.userRepository = repo
+        this._userRepository = repo
     }
 
     async run(createUserRequest: CreateUserRequest): Promise<Result<User>> {
-        const result = await this.userRepository.createUser(createUserRequest)
+        const result = await this._userRepository.createUser(createUserRequest)
 
         return result
     }

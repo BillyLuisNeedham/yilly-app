@@ -2,17 +2,7 @@ import CreateUserUseCase from "./CreateUserUseCase"
 import { CreateUserRequest } from "../../dtos"
 import { User } from "../../models"
 import { IUserRepository } from "../../repositories"
-
-const testUser: User = {
-    id: -1,
-    name: "Test User",
-    email: "email@test.com"
-}
-
-const testCreateUserRequest: CreateUserRequest = {
-    name: "Test User",
-    email: "email@test.com"
-}
+import { testCreateUserRequest, testUser } from "../../../test-utils"
 
 const testResultSuccess: Result<User> = {
     ok: true,
