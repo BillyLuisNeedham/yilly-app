@@ -1,7 +1,7 @@
 import CreateUserUseCase from "./CreateUserUseCase"
 import { CreateUserRequest } from "../../dtos"
 import { User } from "../../models"
-import { UserRepository } from "../../repositories"
+import { IUserRepository } from "../../repositories"
 
 const testUser: User = {
     id: -1,
@@ -14,19 +14,24 @@ const testCreateUserRequest: CreateUserRequest = {
     email: "email@test.com"
 }
 
-const mockUserRepository: UserRepository = {
+const testResultSuccess: Result<User> = {
+    ok: true,
+    value: testUser
+}
+
+const mockUserRepository: IUserRepository = {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     createUser: async (createUserReq: CreateUserRequest) => {
-        return testUser
+        return testResultSuccess
     }
 }
 
 describe('CreateUserUseCase', () => {
 
-    it('should return the value of User returned by UserRepository', async () => {
+    it('should return the value returned by UserRepository', async () => {
         const createUserUseCase = new CreateUserUseCase(mockUserRepository)
         const response = await createUserUseCase.run(testCreateUserRequest)
 
-        expect(response).toEqual(testUser)
+        expect(response).toEqual(testResultSuccess)
     })
 })

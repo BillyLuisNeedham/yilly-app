@@ -3,7 +3,7 @@ import { User } from '../../models'
 import { IUserRepository } from '../../repositories'
 
 interface ICreateUserUseCase {
-    run: (createUserRequest: CreateUserRequest) => Promise<User>
+    run: (createUserRequest: CreateUserRequest) => Promise<Result<User>>
 }
 
 export class CreateUserUseCase implements ICreateUserUseCase {
@@ -13,7 +13,7 @@ export class CreateUserUseCase implements ICreateUserUseCase {
         this.userRepository = repo
     }
 
-    async run(createUserRequest: CreateUserRequest): Promise<User> {
+    async run(createUserRequest: CreateUserRequest): Promise<Result<User>> {
         const result = await this.userRepository.createUser(createUserRequest)
 
         return result
