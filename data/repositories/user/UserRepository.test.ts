@@ -3,15 +3,10 @@ import { testCreateUserRequest, testUser } from "../../../test-utils"
 import { IUserDataSource } from "../../datasources/user-data-source"
 import { UserRepository } from "./UserRepository"
 
-const testResultSuccess: Result<User> = {
-    ok: true,
-    value: testUser
-}
-
 const testUserDataSource: IUserDataSource = {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    createUser: async (createUserReq: CreateUserRequest): Promise<Result<User>> => {
-        return testResultSuccess
+    createUser: async (createUserReq: CreateUserRequest): Promise<User | Error> => {
+        return testUser
     }
 }
 
@@ -20,6 +15,6 @@ describe('UserRepository', () => {
         const userRepo = new UserRepository(testUserDataSource)
         const result = await userRepo.createUser(testCreateUserRequest)
 
-        expect(result).toBe(testResultSuccess)
+        expect(result).toBe(testUser)
     })
 })
