@@ -2,11 +2,8 @@ import express from 'express'
 import { CreateUserUseCase } from '../../data'
 import { CreateUserRequest } from '../../domain'
 
-
-
 export const userRouter = express.Router()
 
-// TODO build out app.post /user, see it log in postman then hook into data layer
 userRouter.post('/', async (req, res) => {
     const body = req.body
     
