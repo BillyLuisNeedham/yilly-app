@@ -7,7 +7,6 @@ interface ICreateUserUseCase {
     run: (createUserRequest: CreateUserRequest) => Promise<User | Error>
 }
 
-// TODO refactor to return Promise<Result<User>>
 export class CreateUserUseCase implements ICreateUserUseCase {
     private _userRepository: IUserRepository
 
