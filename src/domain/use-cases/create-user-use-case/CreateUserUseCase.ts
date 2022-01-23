@@ -2,11 +2,11 @@ import { CreateUserRequest } from '../../dtos'
 import { User } from '../../models'
 import { UserRepository } from '../../repositories'
 
-interface CreateUserUseCaseInterface {
+interface ICreateUserUseCase {
     run: (createUserRequest: CreateUserRequest) => Promise<User>
 }
 
-export class CreateUserUserCase implements CreateUserUseCaseInterface {
+export class CreateUserUseCase implements ICreateUserUseCase {
     userRepository: UserRepository
 
     constructor(repo: UserRepository) {
@@ -20,3 +20,5 @@ export class CreateUserUserCase implements CreateUserUseCaseInterface {
     }
 
 }
+
+export default CreateUserUseCase
