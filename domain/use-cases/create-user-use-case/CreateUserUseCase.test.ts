@@ -11,7 +11,6 @@ const mockUserRepository: IUserRepository = {
 }
 
 describe('CreateUserUseCase', () => {
-
     it('should return the value returned by UserRepository', async () => {
         const createUserUseCase = new CreateUserUseCase(mockUserRepository)
         const response = await createUserUseCase.run(testCreateUserRequest)
