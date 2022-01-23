@@ -1,6 +1,4 @@
 import express from 'express'
-import { CreateUserRequest } from '../../domain'
-
 
 export const userRouter = express.Router()
 
