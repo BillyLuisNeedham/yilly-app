@@ -1,1 +1,1 @@
-export {} from './InjectCreateUserUseCase'
+export { CreateUserUseCase } from './InjectCreateUserUseCase'
