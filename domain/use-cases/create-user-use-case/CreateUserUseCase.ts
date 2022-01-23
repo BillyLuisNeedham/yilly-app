@@ -1,15 +1,15 @@
 import { CreateUserRequest } from '../../dtos'
 import { User } from '../../models'
-import { UserRepository } from '../../repositories'
+import { IUserRepository } from '../../repositories'
 
 interface ICreateUserUseCase {
     run: (createUserRequest: CreateUserRequest) => Promise<User>
 }
 
 export class CreateUserUseCase implements ICreateUserUseCase {
-    userRepository: UserRepository
+    userRepository: IUserRepository
 
-    constructor(repo: UserRepository) {
+    constructor(repo: IUserRepository) {
         this.userRepository = repo
     }
 
