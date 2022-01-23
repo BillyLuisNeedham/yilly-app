@@ -8,7 +8,7 @@ app.use(bodyParser.urlencoded({extended: false}))
 app.use(bodyParser.json())
 
 app.get('/', (req, res) => {
-    res.send('Hello World!')
+    res.send('Hello World AGAIN!')
 })
 
 // TODO build out app.post /user, see it log in postman then hook into data layer
