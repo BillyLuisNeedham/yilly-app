@@ -1,7 +1,7 @@
 import { CreateUserRequest, User } from "../../../domain"
 import { testCreateUserRequest, testUser } from "../../../test-utils"
 import { IUserDataSource } from "../../datasources/user-data-source"
-import { UserRepository } from "./UserRepostiory"
+import { UserRepository } from "./UserRepository"
 
 const testResultSuccess: Result<User> = {
     ok: true,
