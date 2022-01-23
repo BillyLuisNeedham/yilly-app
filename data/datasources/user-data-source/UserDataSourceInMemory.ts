@@ -11,10 +11,6 @@ export class UserDataSourceInMemory implements IUserDataSource {
         }
         this._users.push(newUser)
 
-        // TODO remove when done testing
-        console.log("users is now:");
-        console.log(this._users);
-
         return newUser
     }
 
