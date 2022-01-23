@@ -10,6 +10,7 @@ const isError = (err: unknown) : err is Error => err instanceof Error
 userRouter.post('/', async (req, res) => {
     const body = req.body
     
+    // FIXME not working as expected
     if (!body.name && !body.email) {
         res.status(400).send("invalid request body")
     }
