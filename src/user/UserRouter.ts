@@ -4,6 +4,9 @@ import { CreateUserRequest } from '../../domain'
 
 export const userRouter = express.Router()
 
+// TODO refactor into own function
+const isError = (err: unknown) : err is Error => err instanceof Error
+
 userRouter.post('/', async (req, res) => {
     const body = req.body
     
@@ -18,9 +21,9 @@ userRouter.post('/', async (req, res) => {
     }
     const result = await useCase.run(createUserReq)
 
-    if (!result.ok) {
+    if (isError(result)) {
         res.status(500).send("something went wrong while creating user")
     }
 
-    res.send(result.value)
+    res.send(result)
 })

@@ -9,7 +9,7 @@ export class UserRepository implements IUserRepository {
         this._userDataSource = userDataSource
     }
 
-    async createUser (createUserReq: CreateUserRequest) : Promise<Result<User>> {
+    async createUser (createUserReq: CreateUserRequest) : Promise<User | Error> {
         const result = await this._userDataSource.createUser(createUserReq)
         return result
     }
